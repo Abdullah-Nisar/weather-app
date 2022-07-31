@@ -31,32 +31,23 @@ class _LoadingScreenState extends State<LoadingScreen> {
     // print("Longitude: ${location.Longitude}\n");
   }
 
+  // git remote add origin https://github.com/Abdullah-Nisar/weather-app-updated.git
   void getData() async {
     //https://api.openweathermap.org/data/2.5/weather?lat=37.4216863&lon=-122.0842&appid=0da9a0abde7a8197d6d688ff7cdfcbc5
     await location.getLocation();
     location.printLocation();
-    // http.Response response = await http.get(
-    //   Uri.https(
-    //     'api.openweathermap.org',
-    //     '/data/2.5/weather/',
-    //     {
-    //       'lat': '${location.Latitude}}',
-    //       'lon': '${location.Longitude}}',
-    //       'appid': '0da9a0abde7a8197d6d688ff7cdfcbc5'
-    //     },
-    //   ),
-    // );
     http.Response response = await http.get(
       Uri.https(
         'api.openweathermap.org',
-        '/data/2.5/weather',
+        '/data/2.5/weather/',
         {
-          'lat': '${location.Latitude}',
-          'lon': '${location.Longitude}',
+          'lat': '${location.Latitude}}',
+          'lon': '${location.Longitude}}',
           'appid': '0da9a0abde7a8197d6d688ff7cdfcbc5'
         },
       ),
     );
+
     print(response.body);
     // if (response.statusCode == 200) {
     //   print(response.body);
