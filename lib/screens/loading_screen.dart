@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_12/services/location.dart';
 import 'package:flutter_application_12/screens/location_screen.dart';
 import 'package:flutter_application_12/services/networking.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:http/http.dart' as http;
 
 class LoadingScreen extends StatefulWidget {
@@ -41,6 +42,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
       ),
     );
     var weatherData = await networkHelper.getData();
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return LocationScreen();
+    }));
   }
 
   // git remote add origin https://github.com/Abdullah-Nisar/weather-app-updated.git
@@ -49,13 +53,16 @@ class _LoadingScreenState extends State<LoadingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: ElevatedButton(
-          onPressed: () async {
-            // getData();
-          },
-          child: Text('Get Location'),
-        ),
-      ),
+          child: SpinKitDoubleBounce(
+        color: Colors.white,
+      )
+          // child: ElevatedButton(
+          //   onPressed: () async {
+          //     getLocationData();
+          //   },
+          //   child: Text('Get Location'),
+          // ),
+          ),
     );
   }
 }
