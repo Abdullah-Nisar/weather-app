@@ -5,7 +5,7 @@ class NetworkHelper {
   NetworkHelper(this.uri);
 
   final uri;
-  Future getData() async {
+  getData() async {
     //https://api.openweathermap.org/data/2.5/weather?lat=37.4216863&lon=-122.0842&appid=0da9a0abde7a8197d6d688ff7cdfcbc5
 
     http.Response response = await http.get(uri);
